@@ -16,28 +16,28 @@ import 'package:map_autocomplete_field/services/places_service.dart';
 /// the result span the globe, which no not be desirable behaviour for some use cases.
 
 class MapAutoCompleteField extends StatelessWidget {
-  const MapAutoCompleteField({
-    Key? key,
-    required this.controller,
-    this.suggestionsCallback,
-    required this.itemBuilder,
-    required this.onSuggestionSelected,
-    this.onSaved,
-    this.hint = 'Address',
-    this.validator,
-    required this.googleMapApiKey,
-    this.locale,
-    this.contentPadding,
-    this.fillColor,
-    this.hintStyle,
-    this.focusedBorder,
-    this.enabledBorder,
-    this.border,
-    this.transitionBuilder,
-    this.inputDecoration,
-    this.selectedTextStyle,
-    this.focusNode,
-  }) : super(key: key);
+  const MapAutoCompleteField(
+      {Key? key,
+      required this.controller,
+      this.suggestionsCallback,
+      required this.itemBuilder,
+      required this.onSuggestionSelected,
+      this.onSaved,
+      this.hint = 'Address',
+      this.validator,
+      required this.googleMapApiKey,
+      this.locale,
+      this.contentPadding,
+      this.fillColor,
+      this.hintStyle,
+      this.focusedBorder,
+      this.enabledBorder,
+      this.border,
+      this.transitionBuilder,
+      this.inputDecoration,
+      this.focusNode,
+      this.selectedTextStyle})
+      : super(key: key);
   final TextEditingController controller;
   final FutureOr<Iterable<dynamic>> Function(String)? suggestionsCallback;
   final Widget Function(BuildContext, dynamic) itemBuilder;
@@ -48,10 +48,10 @@ class MapAutoCompleteField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final Color? fillColor;
   final TextStyle? hintStyle;
+  final TextStyle? selectedTextStyle;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final InputBorder? border;
-  final TextStyle? selectedTextStyle;
   final Widget Function(BuildContext, Widget, AnimationController?)?
       transitionBuilder;
 
