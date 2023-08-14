@@ -36,7 +36,12 @@ class MapAutoCompleteField extends StatelessWidget {
       this.transitionBuilder,
       this.inputDecoration,
       this.focusNode,
-      this.selectedTextStyle})
+      this.selectedTextStyle,
+      this.onChanged,
+      this.onEditingComplete,
+      this.onSubmitted,
+      this.onTap,
+      this.onTapOutside})
       : super(key: key);
   final TextEditingController controller;
   final FutureOr<Iterable<dynamic>> Function(String)? suggestionsCallback;
@@ -54,6 +59,11 @@ class MapAutoCompleteField extends StatelessWidget {
   final InputBorder? border;
   final Widget Function(BuildContext, Widget, AnimationController?)?
       transitionBuilder;
+  final void Function(PointerDownEvent)? onTapOutside;
+  final void Function(String)? onChanged;
+  final void Function()? onEditingComplete;
+  final void Function(String)? onSubmitted;
+  final void Function()? onTap;
 
   final InputDecoration? inputDecoration;
   final String googleMapApiKey;
@@ -75,6 +85,11 @@ class MapAutoCompleteField extends StatelessWidget {
               focusNode: focusNode,
               controller: controller,
               style: selectedTextStyle,
+              onTapOutside: onTapOutside,
+              onChanged: onChanged,
+              onEditingComplete: onEditingComplete,
+              onSubmitted: onSubmitted,
+              onTap: onTap,
               decoration: inputDecoration ??
                   InputDecoration(
                     fillColor: fillColor ?? const Color(0xffBFBFBF),
