@@ -41,6 +41,7 @@ class MapAutoCompleteField extends StatelessWidget {
       this.onEditingComplete,
       this.onSubmitted,
       this.onTap,
+      this.autovalidateMode = AutovalidateMode.disabled,
       this.onTapOutside})
       : super(key: key);
   final TextEditingController controller;
@@ -59,6 +60,7 @@ class MapAutoCompleteField extends StatelessWidget {
   final InputBorder? border;
   final Widget Function(BuildContext, Widget, AnimationController?)?
       transitionBuilder;
+  final AutovalidateMode autovalidateMode;
   final void Function(PointerDownEvent)? onTapOutside;
   final void Function(String)? onChanged;
   final void Function()? onEditingComplete;
@@ -131,6 +133,7 @@ class MapAutoCompleteField extends StatelessWidget {
                         ),
                   ),
             ),
+            autovalidateMode: autovalidateMode,
             suggestionsCallback: suggestionsCallback ??
                 (query) {
                   return PlacesService.getSuggestion(
