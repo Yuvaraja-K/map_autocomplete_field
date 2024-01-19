@@ -41,6 +41,7 @@ class MapAutoCompleteField extends StatelessWidget {
       this.onEditingComplete,
       this.onSubmitted,
       this.onTap,
+      this.autofocus = false,
       this.autovalidateMode = AutovalidateMode.disabled,
       this.onTapOutside})
       : super(key: key);
@@ -71,6 +72,7 @@ class MapAutoCompleteField extends StatelessWidget {
   final String googleMapApiKey;
   final String? locale;
   final FocusNode? focusNode;
+  final bool autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +88,7 @@ class MapAutoCompleteField extends StatelessWidget {
             textFieldConfiguration: TextFieldConfiguration(
               focusNode: focusNode,
               controller: controller,
+              autofocus: autofocus,
               style: selectedTextStyle,
               onTapOutside: onTapOutside,
               onChanged: onChanged,
